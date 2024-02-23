@@ -59,6 +59,14 @@ const server = http.createServer(async (req, res) => {
         return
     }
 
+    if (page === '/style.css') {
+        const file = await fs.readFile('style.css')
+        res.writeHead(200, { "Content-type": "text/css", "access-control-allow-origin": "*" })
+        res.write(file)
+        res.end()
+        return
+    }
+
     if (page === '/favicon.ico') {
         res.writeHead(200)
         res.end()
