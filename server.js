@@ -6,6 +6,8 @@ const tokens = {
     avengers: '7dbb830-d193-11ee-9b7b-f9f1064b3430'
 }
 
+const port = process.env.PORT || 10000
+
 const avengersArray = [
     'Iron Man',
     'Captain America',
@@ -158,6 +160,6 @@ const server = http.createServer(async (req, res) => {
     }
 })
 
-server.listen(3000, () => {
-    console.log('Server is running on port 3000')
+server.listen(port, () => {
+    console.log(`Server is running on port ${port}`)
 })
