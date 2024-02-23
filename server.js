@@ -109,13 +109,13 @@ const server = http.createServer(async (req, res) => {
             res.writeHead(405)
             return res.end('Method Not Allowed')
         }
-        if (req.headers.cookie == `token=${tokens.thanos}`) {
+        if (req.headers.cookie === `token=${tokens.thanos}`) {
             res.writeHead(200, { "Content-type": "application/json" })
             console.log('thanos', req.headers.cookie);
             return res.end(JSON.stringify({ avengers: avengersArray.slice(0, 5) }))
         }
 
-        if (req.headers.cookie = `token=${tokens.avengers}`) {
+        if (req.headers.cookie === `token=${tokens.avengers}`) {
             console.log('avengers', req.headers.cookie);
             res.writeHead(200, { "Content-type": "application/json" })
             return res.end(JSON.stringify({ avengers: avengersArray }))
