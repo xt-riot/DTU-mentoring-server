@@ -59,7 +59,7 @@ const server = http.createServer(async (req, res) => {
         return
     }
 
-    if (page === '/style.css') {
+    if (page === '/styles.css') {
         const file = await fs.readFile('style.css')
         res.writeHead(200, { "Content-type": "text/css", "access-control-allow-origin": "*" })
         res.write(file)
