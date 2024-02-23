@@ -1,0 +1,17 @@
+{
+  "name": "dtu-mentoring-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github-personal:xt-riot/DTU-mentoring-server"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
