@@ -45,7 +45,7 @@ const server = http.createServer(async (req, res) => {
 
     if (page === '/form.html') {
         const file = await fs.readFile('form.html')
-        res.writeHead(200, { "Content-type": "text/html", "access-control-allow-origin": "*" })
+        res.writeHead(200, { "Content-type": "text/html" })
         res.write(file)
         res.end()
         return
@@ -53,7 +53,7 @@ const server = http.createServer(async (req, res) => {
 
     if (page === '/main.js') {
         const file = await fs.readFile('main.js')
-        res.writeHead(200, { "Content-type": "application/javascript", "access-control-allow-origin": "*" })
+        res.writeHead(200, { "Content-type": "application/javascript" })
         res.write(file)
         res.end()
         return
@@ -61,7 +61,7 @@ const server = http.createServer(async (req, res) => {
 
     if (page === '/styles.css') {
         const file = await fs.readFile('styles.css')
-        res.writeHead(200, { "Content-type": "text/css", "access-control-allow-origin": "*" })
+        res.writeHead(200, { "Content-type": "text/css" })
         res.write(file)
         res.end()
         return
