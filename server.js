@@ -88,7 +88,15 @@ const server = http.createServer(async (req, res) => {
         req.on('end', () => {
             const data = JSON.parse(body)
             if (data.username === 'thanos' && data.password === 'thanos') {
-                res.writeHead(200, { "Content-type": "application/json", "access-control-allow-origin": "*", "set-cookie": `token=${tokens.thanos}` })
+                res.writeHead(200, {
+                    "Content-type": "application/json",
+                    "access-control-allow-origin": "*",
+                    "set-cookie": `token=${tokens.thanos}`,
+                    "set-cookie": `asd=1; secure`,
+                    "set-cookie": `qwe=2; httpOnly`,
+                    "set-cookie": `zxc=3; sameSite=Strict`,
+                    "set-cookie": `rty=4; secure; httpOnly`,
+                })
                 res.write(JSON.stringify({ role: 'Thanos' }))
                 res.end()
                 return
