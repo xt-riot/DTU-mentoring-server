@@ -32,7 +32,7 @@ const server = http.createServer(async (req, res) => {
         res.writeHead(200, {
             "Access-Control-Allow-Origin": req.headers.origin || cors.origin[cors.origin.length - 1] || cors.default,
             "Access-Control-Allow-Methods": "GET, POST",
-            "Access-Control-Allow-Headers": "*",
+            "Access-Control-Allow-Headers": "Content-Type",
             "Access-Control-Allow-Credentials": "true",
             "Access-Control-Max-Age": "86400"
         })
@@ -105,12 +105,7 @@ const server = http.createServer(async (req, res) => {
                 res.writeHead(200, {
                     "Content-type": "application/json",
                     "access-control-allow-origin": cors.origin.includes(req.headers.origin) ? req.headers.origin : cors.default,
-                    "access-control-allow-credentials": "true",
-                    "set-cookie": `token=${tokens.thanos}`,
-                    "set-cookie": `asd=1; secure`,
-                    "set-cookie": `qwe=2; httpOnly`,
-                    "set-cookie": `zxc=3; sameSite=Strict`,
-                    "set-cookie": `rty=4; secure; httpOnly`,
+                    "set-cookie": `token=${tokens.thanos}`
                 })
                 res.write(JSON.stringify({ role: 'Thanos' }))
                 res.end()
