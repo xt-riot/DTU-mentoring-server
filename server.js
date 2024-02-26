@@ -50,7 +50,12 @@ const server = http.createServer(async (req, res) => {
 
     const page = new URL(req.url, `http://${req.headers.host}`).pathname
     const params = new URLSearchParams(req.url.split('?')[1])
-
+    if (page === '/getHeaders') {
+        res.writeHead(200, { "Content-type": "application/json" })
+        res.write(JSON.stringify(req.headers))
+        res.end()
+        return
+    }
     if (page === '/form.html') {
         const file = await fs.readFile('form.html')
         res.writeHead(200, { "Content-type": "text/html" })
