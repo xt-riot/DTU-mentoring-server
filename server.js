@@ -40,9 +40,10 @@ const server = http.createServer(async (req, res) => {
     }
 
     // Set CORS headers for regular requests
-    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader("Access-Control-Allow-Origin", cors.origin.includes(req.headers.origin) ? req.headers.origin : cors.default);
     res.setHeader("Access-Control-Allow-Methods", "GET, POST");
     res.setHeader("Access-Control-Allow-Headers", "*");
+    res.setHeader("Access-Control-Allow-Credentials", "true");
 
     if (!req.url || !req.headers.host) {
         res.writeHead(400)
