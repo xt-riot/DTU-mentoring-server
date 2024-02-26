@@ -39,7 +39,7 @@ const server = http.createServer(async (req, res) => {
     }
 
     // Set CORS headers for regular requests
-    res.setHeader("Access-Control-Allow-Origin", "https://webcontainer.io");
+    res.setHeader("Access-Control-Allow-Origin", "*");
     res.setHeader("Access-Control-Allow-Methods", "GET, POST");
     res.setHeader("Access-Control-Allow-Headers", "*");
 
@@ -52,7 +52,7 @@ const server = http.createServer(async (req, res) => {
     const params = new URLSearchParams(req.url.split('?')[1])
     if (page === '/getHeaders') {
         res.writeHead(200, { "Content-type": "application/json" })
-        res.write(JSON.stringify(req.headers))
+        res.write(JSON.stringify({ headers: req.headers, origin: cors.origin }))
         res.end()
         return
     }
