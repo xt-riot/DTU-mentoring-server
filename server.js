@@ -8,6 +8,11 @@ const tokens = {
 
 const port = process.env.PORT || 10000
 
+const cors = {
+    origin: ['https://stackblitz.com', 'http://localhost:3000', 'https://webcontainer.io'],
+    default: 'http://localhost:3000'
+}
+
 const avengersArray = [
     'Iron Man',
     'Captain America',
@@ -90,7 +95,7 @@ const server = http.createServer(async (req, res) => {
             if (data.username === 'thanos' && data.password === 'thanos') {
                 res.writeHead(200, {
                     "Content-type": "application/json",
-                    "access-control-allow-origin": "https://stackblitz.com",
+                    "access-control-allow-origin": cors.origin.includes(req.headers.origin) ? req.headers.origin : cors.default,
                     "access-control-allow-credentials": "true",
                     "set-cookie": `token=${tokens.thanos}`,
                     "set-cookie": `asd=1; secure`,
