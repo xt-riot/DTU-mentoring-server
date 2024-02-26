@@ -106,13 +106,13 @@ const server = http.createServer(async (req, res) => {
                     "Content-type": "application/json",
                     "access-control-allow-origin": cors.origin.includes(req.headers.origin) ? req.headers.origin : cors.default,
                     "access-control-allow-credentials": "true",
-                    "set-cookie": `token=${tokens.thanos}`
+                    "set-cookie": `token=${tokens.thanos}; SameSite=None`
                 })
                 res.write(JSON.stringify({ role: 'Thanos' }))
                 res.end()
                 return
             } else if (data.username === 'avengers' && data.password === 'avengers') {
-                res.writeHead(200, { "Content-type": "application/json", "access-control-allow-origin": "*", "access-control-allow-credentials": 'true', "set-cookie": `token=${tokens.avengers}` })
+                res.writeHead(200, { "Content-type": "application/json", "access-control-allow-origin": "*", "access-control-allow-credentials": 'true', "set-cookie": `token=${tokens.avengers}; SameSite=None` })
                 res.write(JSON.stringify({ role: 'Avengers' }))
                 res.end()
                 return
