@@ -90,7 +90,7 @@ const server = http.createServer(async (req, res) => {
             if (data.username === 'thanos' && data.password === 'thanos') {
                 res.writeHead(200, {
                     "Content-type": "application/json",
-                    "access-control-allow-origin": "*",
+                    "access-control-allow-origin": "https://stackblitz.com",
                     "access-control-allow-credentials": "true",
                     "set-cookie": `token=${tokens.thanos}`,
                     "set-cookie": `asd=1; secure`,
