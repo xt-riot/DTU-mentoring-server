@@ -80,6 +80,8 @@ const server = http.createServer(async (req, res) => {
         return
     }
     if (page === '/login') {
+        console.log('got login request')
+        console.log(req.headers.origin)
         if (req.method !== 'POST') {
             res.writeHead(405)
             res.end('Method Not Allowed')
