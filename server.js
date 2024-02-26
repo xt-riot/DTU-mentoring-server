@@ -33,6 +33,7 @@ const server = http.createServer(async (req, res) => {
             "Access-Control-Allow-Origin": req.headers.origin || cors.origin[cors.origin.length - 1] || cors.default,
             "Access-Control-Allow-Methods": "GET, POST",
             "Access-Control-Allow-Headers": "*",
+            "Access-Control-Allow-Credentials": "true",
             "Access-Control-Max-Age": "86400"
         })
         return res.end()
