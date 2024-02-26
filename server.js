@@ -91,6 +91,7 @@ const server = http.createServer(async (req, res) => {
                 res.writeHead(200, {
                     "Content-type": "application/json",
                     "access-control-allow-origin": "*",
+                    "access-control-allow-credentials": "true",
                     "set-cookie": `token=${tokens.thanos}`,
                     "set-cookie": `asd=1; secure`,
                     "set-cookie": `qwe=2; httpOnly`,
