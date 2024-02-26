@@ -106,7 +106,7 @@ const server = http.createServer(async (req, res) => {
                     "Content-type": "application/json",
                     "access-control-allow-origin": cors.origin.includes(req.headers.origin) ? req.headers.origin : cors.default,
                     "access-control-allow-credentials": "true",
-                    "set-cookie": `token=${tokens.thanos}; SameSite=None`
+                    "set-cookie": `token=${tokens.thanos}; SameSite=None; Secure`
                 })
                 res.write(JSON.stringify({ role: 'Thanos' }))
                 res.end()
