@@ -27,10 +27,10 @@ const avengersArray = [
 ]
 
 const server = http.createServer(async (req, res) => {
+    cors.origin.push(req.headers.origin)
     if (req.method === 'OPTIONS') {
-        cors.origin.push(req.headers.origin)
         res.writeHead(200, {
-            "Access-Control-Allow-Origin": "https://webcontainer.io",
+            "Access-Control-Allow-Origin": req.headers.origin || cors.origin[cors.origin.length - 1] || cors.default,
             "Access-Control-Allow-Methods": "GET, POST",
             "Access-Control-Allow-Headers": "*",
             "Access-Control-Max-Age": "86400"
