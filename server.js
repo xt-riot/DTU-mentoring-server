@@ -29,7 +29,7 @@ const avengersArray = [
 const server = http.createServer(async (req, res) => {
     if (req.method === 'OPTIONS') {
         res.writeHead(200, {
-            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Origin": "https://webcontainer.io",
             "Access-Control-Allow-Methods": "GET, POST",
             "Access-Control-Allow-Headers": "*",
             "Access-Control-Max-Age": "86400"
@@ -38,7 +38,7 @@ const server = http.createServer(async (req, res) => {
     }
 
     // Set CORS headers for regular requests
-    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader("Access-Control-Allow-Origin", "https://webcontainer.io");
     res.setHeader("Access-Control-Allow-Methods", "GET, POST");
     res.setHeader("Access-Control-Allow-Headers", "*");
 
